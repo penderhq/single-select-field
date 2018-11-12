@@ -1,16 +1,8 @@
-# single-select-field
+# ![SingleSelectField](https://user-images.githubusercontent.com/44801418/48109944-25097900-e27c-11e8-83ed-be6379428ced.png) SingleSelectField
 
-[![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
 
-Describe single-select-field here.
+Used for selecting a single option from a list.		
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
-
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+[npm-badge]: https://img.shields.io/npm/v/@cmds/single-select-field.svg
+[npm]: https://www.npmjs.org/package/@cmds/single-select-field

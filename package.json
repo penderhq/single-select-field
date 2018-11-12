@@ -1,7 +1,7 @@
 {
-  "name": "single-select-field",
-  "version": "1.0.0",
-  "description": "single-select-field React component",
+  "name": "@cmds/single-select-field",
+  "version": "0.1.0",
+  "description": "Used for selecting a single option from a list.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -11,6 +11,7 @@
     "umd"
   ],
   "scripts": {
+    "deploy": "cd demo/dist && surge --domain cmds-single-select-field.surge.sh",
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
@@ -19,7 +20,12 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@cmds/colors": "^0.3.0",
+    "emotion": "^9.2.12",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.6.2"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
@@ -28,10 +34,10 @@
     "react": "^16.6.1",
     "react-dom": "^16.6.1"
   },
-  "author": "",
-  "homepage": "",
+  "author": "keyflight",
+  "homepage": "https://entercosmos.io",
   "license": "MIT",
-  "repository": "",
+  "repository": "git@github.com:entercosmos/single-select-field.git",
   "keywords": [
     "react-component"
   ]
