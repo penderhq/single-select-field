@@ -87,7 +87,7 @@ export default class RecordGalleryCard extends React.Component {
 
         const {optionId, options} = this.props
 
-        const option = options.options.find(option => option.id === optionId)
+        const option = options.optionsById[optionId]
 
         if (!option) {
             return null

@@ -2,7 +2,60 @@
 
 [![npm package][npm-badge]][npm]
 
-Used for selecting a single option from a list.		
+Used for selecting a single option from a list.	
+
+## Getting started
+
+````
+npm install @cmds/single-select-field --save
+````
+
+````jsx harmony
+<SingleSelectField
+    id={'fld1'}
+    contextId={'recordGalleryCard'}
+    roleId={'readOnly'}
+    optionId={'opt5'}
+    options={{
+        options: ['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6'],
+        optionsById: {
+            'opt1': {
+                id: 'opt1',
+                colorId: 'blue.base',
+                name: 'Blue'
+            },
+            'opt2': {
+                id: 'opt2',
+                colorId: 'green.base',
+                name: 'Green'
+            },
+            'opt3': {
+                id: 'opt3',
+                colorId: 'red.base',
+                name: 'Red'
+            },
+            'opt4': {
+                id: 'opt4',
+                colorId: 'yellow.base',
+                name: 'Yellow'
+            },
+            'opt5': {
+                id: 'opt5',
+                colorId: 'indigo.base',
+                name: 'Indigo'
+            },
+            'opt6': {
+                id: 'opt6',
+                colorId: 'purple.base',
+                name: 'Purple'
+            }
+        }
+    }}
+    onChange={({id, optionId}) => {
+       // do something 
+    }}
+/>
+````
 
 [npm-badge]: https://img.shields.io/npm/v/@cmds/single-select-field.svg
 [npm]: https://www.npmjs.org/package/@cmds/single-select-field

@@ -7,7 +7,8 @@ export default class SingleSelectField extends React.Component {
     static propTypes = {
         optionId: PropTypes.string,
         options: PropTypes.shape({
-            options: PropTypes.arrayOf(PropTypes.string.isRequired)
+            optionsById: PropTypes.object.isRequired,
+            options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
         })
     }
 
