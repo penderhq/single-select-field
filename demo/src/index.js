@@ -44,6 +44,42 @@ args: ${stringifyJSON(args)}
     `)
 }
 
+const FIELD_OPTIONS = {
+    options: ['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6'],
+    optionsById: {
+        'opt1': {
+            id: 'opt1',
+            colorId: 'blue.base',
+            name: 'Blue'
+        },
+        'opt2': {
+            id: 'opt2',
+            colorId: 'green.base',
+            name: 'Green'
+        },
+        'opt3': {
+            id: 'opt3',
+            colorId: 'red.base',
+            name: 'Red'
+        },
+        'opt4': {
+            id: 'opt4',
+            colorId: 'yellow.base',
+            name: 'Yellow'
+        },
+        'opt5': {
+            id: 'opt5',
+            colorId: 'indigo.base',
+            name: 'Indigo'
+        },
+        'opt6': {
+            id: 'opt6',
+            colorId: 'purple.base',
+            name: 'Purple'
+        }
+    }
+}
+
 class Demo extends Component {
     render() {
         return <div>
@@ -58,6 +94,9 @@ class Demo extends Component {
             <h4>
                 Read only role
             </h4>
+            <h5>
+                With selected option
+            </h5>
             <Viewport>
                 <div
                     className={css`
@@ -71,41 +110,27 @@ class Demo extends Component {
                         contextId={'recordGalleryCard'}
                         roleId={'readOnly'}
                         optionId={'opt5'}
-                        options={{
-                            options: ['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6'],
-                            optionsById: {
-                                'opt1': {
-                                    id: 'opt1',
-                                    colorId: 'blue.base',
-                                    name: 'Blue'
-                                },
-                                'opt2': {
-                                    id: 'opt2',
-                                    colorId: 'green.base',
-                                    name: 'Green'
-                                },
-                                'opt3': {
-                                    id: 'opt3',
-                                    colorId: 'red.base',
-                                    name: 'Red'
-                                },
-                                'opt4': {
-                                    id: 'opt4',
-                                    colorId: 'yellow.base',
-                                    name: 'Yellow'
-                                },
-                                'opt5': {
-                                    id: 'opt5',
-                                    colorId: 'indigo.base',
-                                    name: 'Indigo'
-                                },
-                                'opt6': {
-                                    id: 'opt6',
-                                    colorId: 'purple.base',
-                                    name: 'Purple'
-                                }
-                            }
-                        }}
+                        options={FIELD_OPTIONS}
+                    />
+                </div>
+            </Viewport>
+            <h5>
+                Without selected option
+            </h5>
+            <Viewport>
+                <div
+                    className={css`
+                        width: 240px;
+                        height: 22px;
+                        background-color: #fff;
+                    `}
+                >
+                    <SingleSelectField
+                        id={'fld1'}
+                        contextId={'recordGalleryCard'}
+                        roleId={'readOnly'}
+                        optionId={null}
+                        options={FIELD_OPTIONS}
                     />
                 </div>
             </Viewport>
