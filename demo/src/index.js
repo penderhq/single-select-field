@@ -12,22 +12,16 @@ injectGlobal`
     }
 `
 
-class Viewport extends React.Component {
-
-    render() {
-
-        return (
-            <div
-                className={css`
-                    background-color: #e9ebee;
-                    padding: 20px;
-                `}
-            >
-                {this.props.children}
-            </div>
-        )
-    }
-}
+const Context = ({contextId, roleId}) => (
+    <div
+        className={css`
+            margin-top: 32px;
+            margin-bottom: 24px;
+        `}
+    >
+        <strong>Context:</strong> {contextId}, <strong>Role:</strong> {roleId}
+    </div>
+)
 
 const stringifyJSON = (args) => {
     try {
@@ -44,226 +38,204 @@ args: ${stringifyJSON(args)}
     `)
 }
 
-const FIELD_OPTIONS = {
-    'opt1': {
+const FIELD_OPTIONS = [
+    {
         id: 'opt1',
         colorId: 'blue.base',
         name: 'Blue'
     },
-    'opt2': {
+    {
         id: 'opt2',
         colorId: 'green.base',
         name: 'Green'
     },
-    'opt3': {
+    {
         id: 'opt3',
         colorId: 'red.base',
         name: 'Red'
     },
-    'opt4': {
+    {
         id: 'opt4',
         colorId: 'yellow.base',
         name: 'Yellow'
     },
-    'opt5': {
+    {
         id: 'opt5',
         colorId: 'indigo.base',
         name: 'Indigo'
     },
-    'opt6': {
+    {
         id: 'opt6',
         colorId: 'purple.base',
         name: 'Purple'
-    },
-    'opt7': {
+    }
+]
+
+const FIELD_OPTIONS_B = [
+    {
         id: 'opt7',
         colorId: 'charcoal.base',
         name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     }
-}
+]
 
 class Demo extends Component {
+
+    state = {
+        optionId: 'opt5'
+    }
+
     render() {
         return <div>
             <h1>SingleSelectField Demo</h1>
             <p>Used for selecting a single option from a list.</p>
-            <h2>Context based</h2>
-            <p>The behaviour of the component changes based on the context in which it is rendered.</p>
-            <h3>
-                RecordDetail context
-            </h3>
-            <p>Used for displaying selected options in a record detail.</p>
-            <h4>
-                Read only role
-            </h4>
-            <h5>
-                With selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
+            <h2>With selected option</h2>
+            <Context contextId={'recordDetail'} roleId={'editor'}/>
+            <div
+                className={css`
+                    width: 240px;
+                    height: 35px;
+                    display: flex;
+                `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordDetail'}
+                    roleId={'editor'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    optionOrder={['opt6', 'opt1', 'opt2', 'opt3', 'opt4', 'opt5']}
+                    options={FIELD_OPTIONS}
+                    onChange={({optionId}) => this.setState({optionId})}
+                />
+            </div>
+            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
+            <div
+                className={css`
+                    width: 240px;
+                    height: 22px;
+                `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordDetail'}
+                    roleId={'readOnly'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <Context contextId={'recordGalleryCard'} roleId={'readOnly'}/>
+            <div
+                className={css`
+                    width: 240px;
+                    height: 22px;
+                `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordGalleryCard'}
+                    roleId={'readOnly'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <Context contextId={'recordListItem'} roleId={'readOnly'}/>
+            <div
+                className={css`
                         width: 240px;
                         height: 22px;
                         background-color: #fff;
                     `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordDetail'}
-                        roleId={'readOnly'}
-                        optionId={'opt5'}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h5>
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordListItem'}
+                    roleId={'readOnly'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <h2>
                 Without selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
+            </h2>
+            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
+            <div
+                className={css`
+                    width: 240px;
+                    height: 22px;
+                `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordDetail'}
+                    roleId={'readOnly'}
+                    optionId={null}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <Context contextId={'recordGalleryCard'} roleId={'readOnly'}/>
+            <div
+                className={css`
+                        width: 240px;
+                        height: 22px;
+                    `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordGalleryCard'}
+                    roleId={'readOnly'}
+                    optionId={null}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <Context contextId={'recordListItem'} roleId={'readOnly'}/>
+            <div
+                className={css`
                         width: 240px;
                         height: 22px;
                         background-color: #fff;
                     `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordDetail'}
-                        roleId={'readOnly'}
-                        optionId={null}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h5>
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordListItem'}
+                    roleId={'readOnly'}
+                    optionId={null}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
+                    options={FIELD_OPTIONS}
+                />
+            </div>
+            <h2>
                 With very long option name
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
+            </h2>
+            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
+            <div
+                className={css`
                         width: 240px;
                         height: 22px;
-                        background-color: #fff;
                     `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordDetail'}
-                        roleId={'readOnly'}
-                        optionId={'opt7'}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6', 'opt7']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h3>
-                RecordGalleryCard context
-            </h3>
-            <p>Used for displaying selected options in a record gallery card.</p>
-            <h4>
-                Read only role
-            </h4>
-            <h5>
-                With selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
-                        width: 240px;
-                        height: 22px;
-                        background-color: #fff;
-                    `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordGalleryCard'}
-                        roleId={'readOnly'}
-                        optionId={'opt5'}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h5>
-                Without selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
-                        width: 240px;
-                        height: 22px;
-                        background-color: #fff;
-                    `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordGalleryCard'}
-                        roleId={'readOnly'}
-                        optionId={null}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h3>
-                RecordListItem context
-            </h3>
-            <p>Used for displaying selected options in a record list item.</p>
-            <h4>
-                Read only role
-            </h4>
-            <h5>
-                With selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
-                        width: 240px;
-                        height: 22px;
-                        background-color: #fff;
-                    `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordListItem'}
-                        roleId={'readOnly'}
-                        optionId={'opt5'}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
-            <h5>
-                Without selected option
-            </h5>
-            <Viewport>
-                <div
-                    className={css`
-                        width: 240px;
-                        height: 22px;
-                        background-color: #fff;
-                    `}
-                >
-                    <SingleSelectField
-                        id={'fld1'}
-                        contextId={'recordListItem'}
-                        roleId={'readOnly'}
-                        optionId={null}
-                        coloredOptions={true}
-                        optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
-                        options={FIELD_OPTIONS}
-                    />
-                </div>
-            </Viewport>
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordDetail'}
+                    roleId={'readOnly'}
+                    optionId={'opt7'}
+                    coloredOptions={true}
+                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6', 'opt7']}
+                    options={FIELD_OPTIONS_B}
+                />
+            </div>
         </div>
     }
 }

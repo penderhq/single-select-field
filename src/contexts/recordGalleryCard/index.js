@@ -8,7 +8,9 @@ export default class SingleSelectField extends React.Component {
 
         const {optionId, options} = this.props
 
-        const option = options[optionId]
+        const option = options.find(option => {
+            return option.id === optionId
+        })
 
         if (!option) {
             return null
