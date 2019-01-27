@@ -148,7 +148,6 @@ class Demo extends Component {
                 className={css`
                         width: 240px;
                         height: 22px;
-                        background-color: #fff;
                     `}
             >
                 <SingleSelectField
@@ -203,7 +202,6 @@ class Demo extends Component {
                 className={css`
                         width: 240px;
                         height: 22px;
-                        background-color: #fff;
                     `}
             >
                 <SingleSelectField

@@ -1,6 +1,6 @@
 {
   "name": "@cmds/single-select-field",
-  "version": "0.5.0",
+  "version": "0.6.1",
   "description": "Used for selecting a single option from a list.",
   "main": "lib/index.js",
   "module": "es/index.js",

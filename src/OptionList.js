@@ -9,7 +9,6 @@ const OptionList = ({children}) => (
             padding: 0;
             margin: 0;
             vertical-align: top;
-            background: #fff;
             color: #000;
             display: -webkit-box;
             display: -webkit-flex;
