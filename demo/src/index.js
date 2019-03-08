@@ -104,7 +104,6 @@ class Demo extends Component {
                     roleId={'editor'}
                     optionId={this.state.optionId}
                     coloredOptions={true}
-                    optionOrder={['opt6', 'opt1', 'opt2', 'opt3', 'opt4', 'opt5']}
                     options={FIELD_OPTIONS}
                     onChange={({optionId}) => this.setState({optionId})}
                 />
@@ -122,7 +121,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={this.state.optionId}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -139,7 +137,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={this.state.optionId}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -156,7 +153,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={this.state.optionId}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -176,7 +172,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={null}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -193,7 +188,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={null}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -210,7 +204,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={null}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6']}
                     options={FIELD_OPTIONS}
                 />
             </div>
@@ -230,7 +223,6 @@ class Demo extends Component {
                     roleId={'readOnly'}
                     optionId={'opt7'}
                     coloredOptions={true}
-                    optionOrder={['opt1', 'opt2', 'opt3', 'opt4', 'opt5', 'opt6', 'opt7']}
                     options={FIELD_OPTIONS_B}
                 />
             </div>

@@ -12,11 +12,7 @@ export default class SingleSelectField extends React.Component {
 
     render() {
 
-        const {optionId, optionOrder} = this.props
-
-        const options = this.props.options.sort((optionA, optionB) => {
-            return optionOrder.indexOf(optionA.id) - optionOrder.indexOf(optionB.id)
-        })
+        const {options, optionId} = this.props
 
         return (
             <Select
