@@ -2,26 +2,16 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {css, injectGlobal} from 'emotion'
 import SingleSelectField from '../../src'
-
+import {Canvas, Heading, Paragraph, Box} from '@cmds/demo-utils'
 injectGlobal`
     * {
         box-sizing: border-box;
     }
     body {
         font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        margin: 0;
     }
 `
-
-const Context = ({contextId, roleId}) => (
-    <div
-        className={css`
-            margin-top: 32px;
-            margin-bottom: 24px;
-        `}
-    >
-        <strong>Context:</strong> {contextId}, <strong>Role:</strong> {roleId}
-    </div>
-)
 
 const stringifyJSON = (args) => {
     try {
@@ -86,18 +76,12 @@ class Demo extends Component {
     }
 
     render() {
-        return <div>
-            <h1>SingleSelectField Demo</h1>
-            <p>Used for selecting a single option from a list.</p>
-            <h2>With selected option</h2>
-            <Context contextId={'recordDetail'} roleId={'editor'}/>
-            <div
-                className={css`
-                    width: 240px;
-                    height: 35px;
-                    display: flex;
-                `}
-            >
+        return <Canvas>
+            <Heading>
+                Record Detail Context
+            </Heading>
+            <Paragraph>With selected option and editor role</Paragraph>
+            <Box>
                 <SingleSelectField
                     id={'fld1'}
                     contextId={'recordDetail'}
@@ -107,14 +91,9 @@ class Demo extends Component {
                     options={FIELD_OPTIONS}
                     onChange={({optionId}) => this.setState({optionId})}
                 />
-            </div>
-            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                    width: 240px;
-                    height: 22px;
-                `}
-            >
+            </Box>
+            <Paragraph>With selected option and read only role</Paragraph>
+            <Box>
                 <SingleSelectField
                     id={'fld1'}
                     contextId={'recordDetail'}
@@ -123,49 +102,11 @@ class Demo extends Component {
                     coloredOptions={true}
                     options={FIELD_OPTIONS}
                 />
-            </div>
-            <Context contextId={'recordGalleryCard'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                    width: 240px;
-                    height: 22px;
-                `}
-            >
-                <SingleSelectField
-                    id={'fld1'}
-                    contextId={'recordGalleryCard'}
-                    roleId={'readOnly'}
-                    optionId={this.state.optionId}
-                    coloredOptions={true}
-                    options={FIELD_OPTIONS}
-                />
-            </div>
-            <Context contextId={'recordListItem'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                        width: 240px;
-                        height: 22px;
-                    `}
-            >
-                <SingleSelectField
-                    id={'fld1'}
-                    contextId={'recordListItem'}
-                    roleId={'readOnly'}
-                    optionId={this.state.optionId}
-                    coloredOptions={true}
-                    options={FIELD_OPTIONS}
-                />
-            </div>
-            <h2>
-                Without selected option
-            </h2>
-            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                    width: 240px;
-                    height: 22px;
-                `}
-            >
+            </Box>
+            <Paragraph>
+                Without selected option and read only role
+            </Paragraph>
+            <Box>
                 <SingleSelectField
                     id={'fld1'}
                     contextId={'recordDetail'}
@@ -174,49 +115,11 @@ class Demo extends Component {
                     coloredOptions={true}
                     options={FIELD_OPTIONS}
                 />
-            </div>
-            <Context contextId={'recordGalleryCard'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                        width: 240px;
-                        height: 22px;
-                    `}
-            >
-                <SingleSelectField
-                    id={'fld1'}
-                    contextId={'recordGalleryCard'}
-                    roleId={'readOnly'}
-                    optionId={null}
-                    coloredOptions={true}
-                    options={FIELD_OPTIONS}
-                />
-            </div>
-            <Context contextId={'recordListItem'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                        width: 240px;
-                        height: 22px;
-                    `}
-            >
-                <SingleSelectField
-                    id={'fld1'}
-                    contextId={'recordListItem'}
-                    roleId={'readOnly'}
-                    optionId={null}
-                    coloredOptions={true}
-                    options={FIELD_OPTIONS}
-                />
-            </div>
-            <h2>
-                With very long option name
-            </h2>
-            <Context contextId={'recordDetail'} roleId={'readOnly'}/>
-            <div
-                className={css`
-                        width: 240px;
-                        height: 22px;
-                    `}
-            >
+            </Box>
+            <Paragraph>
+                With very long option name and read only role
+            </Paragraph>
+            <Box>
                 <SingleSelectField
                     id={'fld1'}
                     contextId={'recordDetail'}
@@ -225,8 +128,64 @@ class Demo extends Component {
                     coloredOptions={true}
                     options={FIELD_OPTIONS_B}
                 />
-            </div>
-        </div>
+            </Box>
+            <Heading>
+                Record Gallery Card Context
+            </Heading>
+            <Paragraph>With selected option and read only role</Paragraph>
+            <Box>
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordGalleryCard'}
+                    roleId={'readOnly'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    options={FIELD_OPTIONS}
+                />
+            </Box>
+            <Paragraph>Without selected option and read only role</Paragraph>
+            <Box
+                className={css`
+                        width: 240px;
+                        height: 22px;
+                    `}
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordGalleryCard'}
+                    roleId={'readOnly'}
+                    optionId={null}
+                    coloredOptions={true}
+                    options={FIELD_OPTIONS}
+                />
+            </Box>
+            <Heading>
+                Record List Item Context
+            </Heading>
+            <Paragraph>With selected option and read only role</Paragraph>
+            <Box>
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordListItem'}
+                    roleId={'readOnly'}
+                    optionId={this.state.optionId}
+                    coloredOptions={true}
+                    options={FIELD_OPTIONS}
+                />
+            </Box>
+            <Paragraph>Without selected option and read only role</Paragraph>
+            <Box
+            >
+                <SingleSelectField
+                    id={'fld1'}
+                    contextId={'recordListItem'}
+                    roleId={'readOnly'}
+                    optionId={null}
+                    coloredOptions={true}
+                    options={FIELD_OPTIONS}
+                />
+            </Box>
+        </Canvas>
     }
 }
 
