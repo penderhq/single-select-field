@@ -1,6 +1,7 @@
 import React from 'react'
 import OptionList from './../../OptionList'
 import Option from './../../Option'
+import defaultEmptyRenderer from '../../defaultEmptyRenderer';
 
 export default class SingleSelectField extends React.Component {
 
@@ -13,7 +14,7 @@ export default class SingleSelectField extends React.Component {
         })
 
         if (!option) {
-            return null
+            return defaultEmptyRenderer()
         }
 
         return (

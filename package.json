@@ -1,5 +1,5 @@
 {
-  "name": "@cmds/single-select-field",
+  "name": "@pndr/single-select-field",
   "version": "0.8.0",
   "description": "Used for selecting a single option from a list.",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "deploy": "cd demo/dist && surge --project ./ --domain cmds-single-select-field.surge.sh",
+    "deploy": "cd demo/dist && surge --project ./ --domain pndr-single-select-field.surge.sh",
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
@@ -24,16 +24,17 @@
     "prop-types": "^15.6.2"
   },
   "peerDependencies": {
-    "@cmds/colors": "0.x",
-    "@cmds/select": "0.x",
+    "@pndr/colors": "0.x",
+    "@pndr/select": "0.x",
     "emotion": "10.x",
     "lodash": "4.x",
     "react": "16.x"
   },
   "devDependencies": {
-    "@cmds/colors": "0.x",
-    "@cmds/demo-utils": "^0.2.0",
-    "@cmds/select": "^0.7.0",
+    "@pndr/colors": "^0.4.0",
+    "@pndr/demo-utils": "^0.3.0",
+    "@pndr/icons": "^0.4.0",
+    "@pndr/select": "^0.7.0",
     "emotion": "10.x",
     "lodash": "4.x",
     "nwb": "0.23.x",

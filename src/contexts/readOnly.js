@@ -1,6 +1,6 @@
 import React from 'react'
 import {css} from 'emotion'
-import colors from '@cmds/colors'
+import colors from '@pndr/colors'
 import get from 'lodash/get'
 
 const Option = ({option}) => (

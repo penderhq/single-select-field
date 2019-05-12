@@ -1,7 +1,7 @@
 import React from 'react'
-import colors from '@cmds/colors'
+import colors from '@pndr/colors'
 import {css} from 'emotion'
-import Select from '@cmds/select'
+import Select from '@pndr/select'
 
 const defaultColor = {
     backgroundColor: 'black',
