@@ -45,7 +45,7 @@ export default class SingleSelectField extends React.Component {
                     padding-right: 8px;
                     line-height: 1.5;
                     -webkit-print-color-adjust: exact;
-                    border-radius: 9999px;
+                    border-radius: 6px;
                     flex: 0 0 auto;
                 `}
             >
